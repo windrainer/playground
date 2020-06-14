@@ -1,5 +1,7 @@
 package com.sen.playground.algorithm;
 
+import static com.sen.playground.utils.Utils.printArray;
+
 /**
  * Created by gaosen1 on 2017/11/20.
  */
@@ -7,19 +9,16 @@ public class MergeSort {
 
     public static void main(String[] args) {
         int i;
-        int a[] = {80,30,60,40,20,10,50,70};
+        int a[] = {80,30,60,40,20,10,50,70, -2, 1098, Integer.MAX_VALUE, Integer.MIN_VALUE};
 
         System.out.printf("before sort:");
-        for (i=0; i<a.length; i++)
-            System.out.printf("%d ", a[i]);
+        printArray(a);
         System.out.printf("\n");
 
         mergeSort(a, 0, a.length - 1);
 
         System.out.printf("after  sort:");
-        for (i=0; i<a.length; i++)
-            System.out.printf("%d ", a[i]);
-        System.out.printf("\n");
+        printArray(a);
     }
 
     /**
@@ -59,7 +58,7 @@ public class MergeSort {
         if(array==null || start >= end)
             return;
 
-        int mid = (end + start)/2;
+        int mid = start + ((end -start) >> 1);
         mergeSort(array,start,mid);
         mergeSort(array,mid+1,end);
 
